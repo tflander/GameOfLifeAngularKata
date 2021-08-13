@@ -6,6 +6,8 @@ The skeleton components are provded, along with a game runner that uses a 300ms 
 
 ## TODO:
 
+Be sure to have the typical Angular dependencies.  After cloning this repo, perform an `npm install` in the local workspace.
+
 - Review game.service.spec.ts and game.service.ts.  This is where you will either create or call the game code that you will test-drive.
 - Review gameRunner.component.spec.ts and gameRunner.component.ts.  With a few modifications, this is where you will initialize and display the game.  The code to progress the game every 300ms is provided here. 
 
