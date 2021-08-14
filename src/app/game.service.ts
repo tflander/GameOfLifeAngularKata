@@ -4,14 +4,31 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GameService {
+  columns: number;
+  rows: number;
+  grid: string[][];
 
   constructor() {
-    // TODO: create the game
+    this.columns = 0;
+    this.rows = 0;
+    this.grid = [];
   }
 
   tick() {
     // TODO: update the game state
   }
 
+  createGrid(columns: number, rows: number) {
+    this.columns = columns;
+    this.rows = rows;
+
+    for(let r = 0; r < rows; ++r) {
+      let row = [];
+      for (let c = 0; c < columns; ++c) {
+        row.push(".");
+      }
+      this.grid.push(row);
+    }
+  }
 }
 

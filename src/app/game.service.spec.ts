@@ -14,8 +14,13 @@ describe('GameService Tests', () => {
     service = TestBed.inject(GameService);
   });
 
-  it('does something interesting', () => {
-    // TODO: test drive the game
+  it('creates a fixed grid', () => {
+    service.createGrid(10,12);
+
+    expect(service.columns).toBe(10);
+    expect(service.rows).toBe(12);
+    expect(service.grid.length).toBe(12);
+    expect(service.grid[0].length).toBe(10);
   });
 
 
