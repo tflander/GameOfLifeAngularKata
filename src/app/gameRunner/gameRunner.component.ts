@@ -10,18 +10,18 @@ import {delay} from 'rxjs/operators';
 })
 export class GameRunnerComponent implements OnInit {
 
-  game: string = "";
+  game: string[][] = [];
   timerSubs: Subscription | undefined
 
 
   constructor(private gameService: GameService) { }
 
   showGrid() {
-    this.game = "TODO: Show the game grid " + Math.random();
+    this.game = this.gameService.grid;
   }
 
   ngOnInit(): void {
-    // TODO: init the game
+    this.gameService.createGrid(10, 12);
     this.showGrid();
     this.setTimerForGridUpdate();
   }
