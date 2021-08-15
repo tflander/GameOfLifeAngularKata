@@ -25,7 +25,10 @@ export class GameService {
     for(let r = 0; r < rows; ++r) {
       let row = "";
       for (let c = 0; c < columns; ++c) {
-        row += ".";
+        if(Math.random() < 0.5)
+          row += ".";
+        else
+          row += "X";
       }
       this.grid.push(row);
     }
