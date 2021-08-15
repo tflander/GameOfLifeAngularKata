@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class GameService {
   columns: number;
   rows: number;
-  grid: string[][];
+  grid: string[];
 
   constructor() {
     this.columns = 0;
@@ -23,9 +23,9 @@ export class GameService {
     this.rows = rows;
 
     for(let r = 0; r < rows; ++r) {
-      let row = [];
+      let row = "";
       for (let c = 0; c < columns; ++c) {
-        row.push(".");
+        row += ".";
       }
       this.grid.push(row);
     }
