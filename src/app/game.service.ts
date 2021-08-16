@@ -33,5 +33,33 @@ export class GameService {
       this.grid.push(row);
     }
   }
+
+  setGrid(gridState: string[]) {
+    this.columns = gridState[0].length;
+    this.rows = gridState.length;
+
+    for(let r = 0; r < this.rows; ++r) {
+      let row = "";
+      for (let c = 0; c < this.columns; ++c) {
+        row += gridState[r][c];
+      }
+      this.grid.push(row);
+    }
+  }
+
+  neighborsFor(column: number, row: number) {
+    let neighborCount = 0;
+    for (let c = column - 1; c <= column + 1; ++c) {
+      for (let r = row - 1; r <= row + 1; ++r) {
+        if(r >= 0 && r < this.rows) {
+          if (this.grid[r][c] == 'X') {
+            if (c != column || r != row)
+              ++neighborCount;
+          }
+        }
+      }
+    }
+    return neighborCount;
+  }
 }
 

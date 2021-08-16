@@ -23,5 +23,24 @@ describe('GameService Tests', () => {
     expect(service.grid[0].length).toBe(10);
   });
 
+  describe('Neighbor Counting Tests', () => {
+
+    it('counts neighbors', () => {
+      service.setGrid([
+        "X...",
+        "XX..",
+        "XXX.",
+        "XXXX",
+        "XXXX"
+      ]);
+
+      expect(service.neighborsFor(1,1)).toBe(5);
+      expect(service.neighborsFor(0,1)).toBe(4);
+      expect(service.neighborsFor(0,0)).toBe(2);
+      expect(service.neighborsFor(3,4)).toBe(3);
+    });
+
+  });
+
 
 });
