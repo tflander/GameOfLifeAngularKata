@@ -2,10 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { GameService } from './game.service';
 
-function verifyGrid(expectedGrid: string[][]) {
-
-}
-
 describe('GameService Tests', () => {
   let service: GameService;
 
@@ -61,5 +57,29 @@ describe('GameService Tests', () => {
     expect(service.nextState('.', 2)).toBe('.');
     expect(service.nextState('.', 4)).toBe('.');
   });
+
+  it('updates the grid on tick', () => {
+    service.setGrid([
+      ".X.",
+      ".X.",
+      ".X."
+    ]);
+
+    service.tick();
+
+    verifyGrid([
+      "...",
+      "XXX",
+      "..."
+    ]);
+
+  });
+
+  function verifyGrid(expectedGrid: string[]) {
+    var actualGrid = service.grid;
+    for(let r = 0; r < service.rows; ++r) {
+      expect(actualGrid[r]).toEqual(expectedGrid[r]);
+    }
+  }
 
 });
