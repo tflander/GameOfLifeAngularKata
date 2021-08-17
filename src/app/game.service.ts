@@ -61,5 +61,15 @@ export class GameService {
     }
     return neighborCount;
   }
+
+  nextState(currentState: string, neighbors: number) {
+    if(currentState == '.')  {
+      if(neighbors == 3) return 'X'
+    } else {
+      if (neighbors == 2 || neighbors == 3)
+        return 'X';
+    }
+    return '.';
+  }
 }
 
