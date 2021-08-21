@@ -15,7 +15,18 @@ export class GameService {
   }
 
   tick() {
-    // TODO: update the game state
+    let updatedGrid = [];
+    for(let r = 0; r < this.rows; ++r) {
+      let row = "";
+      for (let c = 0; c < this.columns; ++c) {
+        let cell = this.grid[r][c];
+        let n = this.neighborsFor(c,r);
+        let newstate = this.nextState(cell, n);
+        row += newstate;
+      }
+      updatedGrid.push(row);
+    }
+    this.grid = updatedGrid;
   }
 
   createGrid(columns: number, rows: number) {
